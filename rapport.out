@@ -1,0 +1,18 @@
+\BOOKMARK [0][-]{chapter*.2}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter*.3}{+jet event classification in LHC collisions}{}% 2
+\BOOKMARK [1][-]{section.1.1}{CMS experiment at LHC}{chapter*.3}% 3
+\BOOKMARK [1][-]{section.1.2}{Hadronic jets in proton-proton collisions}{chapter*.3}% 4
+\BOOKMARK [0][-]{chapter*.4}{Collision data}{}% 5
+\BOOKMARK [1][-]{section.2.1}{Monte-Carlo simulation}{chapter*.4}% 6
+\BOOKMARK [1][-]{section.2.2}{CMS data}{chapter*.4}% 7
+\BOOKMARK [1][-]{section.2.3}{MVA variables}{chapter*.4}% 8
+\BOOKMARK [0][-]{chapter*.5}{Input variable analysis}{}% 9
+\BOOKMARK [1][-]{section.3.1}{Background vs Signal discrimination}{chapter*.5}% 10
+\BOOKMARK [1][-]{section.3.2}{Variable correlations}{chapter*.5}% 11
+\BOOKMARK [1][-]{section.3.3}{Data driven background estimation}{chapter*.5}% 12
+\BOOKMARK [0][-]{chapter*.10}{MultiVariate Analysis}{}% 13
+\BOOKMARK [1][-]{section.4.1}{Artificial Neural Network}{chapter*.10}% 14
+\BOOKMARK [0][-]{chapter*.12}{Signal extracted on DATA}{}% 15
+\BOOKMARK [1][-]{section.5.1}{PDF parametrization}{chapter*.12}% 16
+\BOOKMARK [1][-]{section.5.2}{Fit on Data}{chapter*.12}% 17
+\BOOKMARK [0][-]{chapter*.13}{Conclusion and future outlook}{}% 18

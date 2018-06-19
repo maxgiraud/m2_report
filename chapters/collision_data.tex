@@ -1,0 +1,46 @@
+\mychapter{2}{Collision data}
+\label{sec:unchapitre}
+
+In this chapter will be described the various sources of data, and input variable that has been used during this work.
+
+\section{Monte-Carlo simulation}
+
+?
+
+\section{CMS data}
+
+Run 2 at $\sqrt{s} = 13 TeV$ for an integrated luminosity of $~ 36 fb^{-1}$
+number of events ? slide de hugues ?
+
+\section{MVA variables}
+
+In order to perform a multivariate analysis we used multiple variables representing various aspects of jets :
+
+\begin{description}
+    \item [Isolation variables] represent additional objects (photons,charged hadron and neutral hadron) reconstructed
+    in a $\Delta R$ radius cone around the processed photon. These variables permit to discriminate between isolated
+    prompt photons and neutral pions within a jet.
+    \begin{description}
+	    \item [Charged Hadron isolation (CHiso) : ] $I_{cha} = \sum_{cha_i}^{\Delta R}{p_{T,cha_i}}$ \\
+            $cha_i$ corresponds to reconstructed charged hadron.
+	    \item [Neutral Hadron isolation (NHiso) : ] $I_{neu} = \sum_{neu_i}^{\Delta R}{p_{T,neu_i}}$ \\
+            $neu_i$ corresponds to reconstructed neutral hadron.
+        \item [Photon isolation (Photoniso) : ] $I_\gamma = \sum_{\gamma_i}^{\Delta R}{p_{T,\gamma_i}}$ \\
+            $\gamma_i$ corresponds to reconstructed photons, the sum doesn't account for the $p_T$ of the processed
+            photon. (parler du pile-up avec $\rho$ ?)
+    \end{description}
+    \item [\textsigma\textsubscript{i\texteta i\texteta} :] Energy weighted spread within the 5x5 crystal matrix centred on the crystal with the largest energy deposit in the supercluster. Obtained by measuring position by countinig crystals.
+	\item [\textsigma\textsubscript{i\texteta i\textphi} :] Energy weighted spread within the 5x5 crystal matrix centred on the crystal with the largest energy deposit in the supercluster. Obtained by measuring position by countinig crystals.
+    \item [\texteta\textsubscript{width} \: \textgamma :] Shower width in \texteta
+    \item [\textphi\textsubscript{width} \: \textgamma :] Shower width in \textphi
+	\item [R\textsubscript{9} \: \textgamma :] Energy sum of the 3x3 crystals centred on the most energetic crystal in
+    the supercluster divided by the supercluster's energy. Lower values of R\textsubscript{9} for converted photons than those of unconverted photons.
+	\item [Had/Em :] Hadronic calorimeter energy deposit over Electromagnetic calorimeter energy deposit
+    \item [E\textsubscript{nxm}/E\textsubscript{5x5} :] Energy of most energetic nxm crystal set over energy of 5x5 crystal set
+    \item [\textrho :] Pile-up energy, median of the transverse energy density per unit area.
+\end{description}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "isae-report-template"
+%%% End: 
