@@ -27,11 +27,68 @@ bests were selected for the tuning of their parameters.\\
 
 \section{Artificial Neural Network}
 
+An ANN is a multilayer perceptron with fully interconnected layers (fig. \ref{nn_arch}).
+This ANN is used for classification, it is a function mapping an input vector $\vec{x_0}$ to a scalar $y$ with $y \in [0;1]$
 
-Input variable optimization
+\subsection{Theory}
+
+A neuron is referenced by his position in the network, a neuron $h_{i,j}(\vec{x_{j-1}}) \rightarrow h_{i,j}$ represent the i-th neuron of the j-th layer.\\
+It sums all neuron's output in the (j-1)-th layer, weighted by their connection weight. This net sum is then evaluated through the activation function ( sigmoid, logistic, heaviside, linear, etc) (fig. \ref{one_neuron}).
+
+\begin{figure}[h!]
+\centering
+    \begin{subfigure}[h!]{0.6\textwidth}
+    \centering
+    	\includegraphics[width=\textwidth]{one_neuron}
+    	\caption{Diagram of a single neuron algorithm.}
+    	\label{one_neuron}
+	\end{subfigure}
+	~
+    \begin{subfigure}[h!]{0.35\textwidth}
+    \centering
+    	\includegraphics[width=\textwidth]{nn_arch}
+    	\caption{Architecture of an artificial neural network with 4 input variables, one hidden layer, and one output neuron.}
+    	\label{nn_arch}
+	\end{subfigure}
+\end{figure}
 
 
+A lot of parameters are available for tuning :
+\begin{description}
+    \item [Input variable] Choice of input variable set, number of variables, choice of a Pre-processing method, etc.
+    \item [ANN architecture] number of hidden layers, number of neurons per layer, choice of an activation function, etc.
+    \item [Learning algorithm parameter] Choice of a learning method, choice of a regulator, value of learning rate, step size, weight decay rate, etc.
+\end{description}
 
+All of these cannot be optimize at the same time, so a choice has to be made.\\
+The first parameter to be tune is the input variable set, a compromise has to be made in order to have the smallest input set but containing the most relevant information for classification.
+
+\subsection{Input set optimization}
+
+For this part an iterative process of optimization will be performed :
+\begin{description}
+	\item [step 1] Train MVA with full input variable set
+	\item [step 2] Train N MVA removing one variable at a time
+	\begin{description}
+		\item [step 2.1] The MVA that succeed the best despite of having removed one variable, tells us that this variable wasn't revelant.
+		\item [step 2.2] Remove this variable permanently, reiterate step 2 until no variable is left.
+	\end{description}
+	\item [final step] keep the input variable set of the best MVA
+\end{description}
+
+For evaluating MVA multiple estimators has been tested :
+\begin{description}
+	\item [Mean Square Estimator (MSE)] $ MSE(\hat{\theta}) = E_{\hat{\theta}} [(\hat{\theta} - \theta)^2] =
+    Var_{\hat{\theta}} + Bias(\hat{\theta}, \theta)^2$
+	\item [Cross-Entropy (CE)] $ H(T,q) = -\sum_{i=1}^{N}{\frac{1}{N} log_2 q(x_i)}$
+	\item [Overlapping criteria] $ = \sum_{i=1}^{N}{signal*background}$
+\end{description}
+
+\begin{figure}[h!]
+    \includegraphics[width=\textwidth]{input_optim}
+    \caption{Input variable set optimization.}
+    \label{input_optim}
+\end{figure}
 
 
 

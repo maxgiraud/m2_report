@@ -14,7 +14,8 @@ number of events ? slide de hugues ?
 
 \section{MVA variables}
 
-In order to perform a multivariate analysis we used multiple variables representing various aspects of jets :
+In order to perform a multivariate analysis we used multiple variables representing various aspects of reconstructed
+photons :
 
 \begin{description}
     \item [Isolation variables] represent additional objects (photons,charged hadron and neutral hadron) reconstructed
@@ -28,15 +29,24 @@ In order to perform a multivariate analysis we used multiple variables represent
         \item [Photon isolation (Photoniso) : ] $I_\gamma = \sum_{\gamma_i}^{\Delta R}{p_{T,\gamma_i}}$ \\
             $\gamma_i$ corresponds to reconstructed photons, the sum doesn't account for the $p_T$ of the processed
             photon. (parler du pile-up avec $\rho$ ?)
+	\\
     \end{description}
-    \item [\textsigma\textsubscript{i\texteta i\texteta} :] Energy weighted spread within the 5x5 crystal matrix centred on the crystal with the largest energy deposit in the supercluster. Obtained by measuring position by countinig crystals.
-	\item [\textsigma\textsubscript{i\texteta i\textphi} :] Energy weighted spread within the 5x5 crystal matrix centred on the crystal with the largest energy deposit in the supercluster. Obtained by measuring position by countinig crystals.
-    \item [\texteta\textsubscript{width} \: \textgamma :] Shower width in \texteta
+    \item [Shape variables] represent deposited energy shape in the ECAL.
+    \begin{description}
+    	\item [\textsigma\textsubscript{i\texteta i\texteta} :] Energy weighted spread within the 5x5 crystal matrix centred on the crystal with the largest energy deposit in the supercluster. Obtained by measuring position by countinig crystals. \\
+		$ \sigma_{i \eta i \eta} = \sqrt{\frac{\sum^{5x5}_{j}\omega_j (i \eta_j - i \eta_{seed})^2}{\sum^{5x5}_{j}\omega_j}}$ \\
+		$i \eta$ is the crystal index at position \texteta and $\omega_i$ is a weight representing the expected energy deposit measured.\\
+		$\omega_i = b + ln(\frac{E_i}{E_{5x5}})$
+		\item [\textsigma\textsubscript{i\textphi i\textphi} :] same variable as $ \sigma_{i \eta i \eta}$ but computed in the \textphi direction.
+		\item [\textsigma\textsubscript{i\texteta i\textphi} :] is the covariance between $ \sigma_{i \eta i \eta}$ and $ \sigma_{i \phi i \phi}$
+    \\
+		\item [\texteta\textsubscript{width} \: \textgamma :] Shower width in \texteta
     \item [\textphi\textsubscript{width} \: \textgamma :] Shower width in \textphi
 	\item [R\textsubscript{9} \: \textgamma :] Energy sum of the 3x3 crystals centred on the most energetic crystal in
     the supercluster divided by the supercluster's energy. Lower values of R\textsubscript{9} for converted photons than those of unconverted photons.
 	\item [Had/Em :] Hadronic calorimeter energy deposit over Electromagnetic calorimeter energy deposit
     \item [E\textsubscript{nxm}/E\textsubscript{5x5} :] Energy of most energetic nxm crystal set over energy of 5x5 crystal set
+    \end{description}
     \item [\textrho :] Pile-up energy, median of the transverse energy density per unit area.
 \end{description}
 
