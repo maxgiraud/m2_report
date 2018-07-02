@@ -32,11 +32,41 @@ With :
 
 \section{Fit on Data}
 
+With the PDF established in the previous section we want to extract values of the parameters $a$ and $b$ representing
+signal and background proportion in the sample. For this analysis we will perform a maximum likelihood estimation for
+each $p_T^\gamma$ range that has been defined. (fig \ref{pt_5_dataset}) show for example the fit perfomed for $p_T^\gamma \in [?;?]$
 
-\subsection{Pull-plot cross-check}
+\begin{figure}[h!]
+\centering
+    \includegraphics[width=0.7\textwidth]{pt_5_dataset}
+    \caption{Example of a maximum likelihood fit performed for $p_T^\gamma \in [ ?;? ]$, showing background PDF (dotted
+    blue line) signal PDF (dotted red line) and fit result (solid black line) superimposed with real data (black dot).}
+    \label{pt_5_dataset}
+\end{figure}
+
+\subsection{Pulls distribution cross-check}
+
+In order to perform a cross-ckeck of the maximum-likelihood we generate a pull distribution for each $p_T^\gamma$ range.
+
+\begin{figure}[h!]
+\centering
+    \includegraphics[width=0.7\textwidth]{pull_plot}
+    \caption{Example of a pull plot performed for $p_T^\gamma \in [ ?;? ]$, showing background PDF (dotted
+    blue line) signal PDF (dotted red line) and fit result (solid black line) superimposed with real data (black dot).}
+    \label{pull_plot}
+\end{figure}
 
 \subsection{\textgamma+jet events purity}
 
+Finally the estimated parameters representing background and signal proportions are used to construct the \textgamma+jet
+events (signal) purity function of the $p_T^\gamma$ (fig. \ref{purity}).
+\begin{figure}[h!]
+\centering
+    \includegraphics[width=0.7\textwidth]{purity}
+    \caption{Example of a pull plot performed for $p_T^\gamma \in [ ?;? ]$, showing background PDF (dotted
+    blue line) signal PDF (dotted red line) and fit result (solid black line) superimposed with real data (black dot).}
+    \label{purity}
+\end{figure}
 
 %%% Local Variables: 
 %%% mode: latex

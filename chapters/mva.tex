@@ -36,7 +36,7 @@ Here is the output of the ANN that has been trained for the next part of the ana
 \end{figure}
 
 
-\subsection{Theory}
+%\subsection{Theory}
 
 A neuron is referenced by his position in the network, a neuron $h_{i,j}(\vec{x_{j-1}}) \rightarrow h_{i,j}$ represent the i-th neuron of the j-th layer.\\
 It sums all neuron's output in the (j-1)-th layer, weighted by their connection weight. This net sum is then evaluated through the activation function ( sigmoid, logistic, heaviside, linear, etc) (fig. \ref{one_neuron}).
@@ -92,7 +92,10 @@ For evaluating the ANN multiple estimators has been tested :
 
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{input_optim}
-    \caption{Input variable set optimization.}
+    \caption{Input variable set optimization results overview, each bin is the estimator value for one MVA. Except for
+    the 1st column that represents the MVA trained with the whole input seti (step 1), 2nd column
+    represent MVA's that has been trained after removing one variable at a time (step 2), following columns are the
+    iterations of step 2.}
     \label{input_optim}
 \end{figure}
 
@@ -108,7 +111,7 @@ Multiple learning method has been used, the Gradient Boost Method was the most e
     \label{bdt_output}
 \end{figure}
 
-\subsection{Theory}
+%\subsection{Theory}
 
 BDT uses a decision tree in order to map from input variables to the event category (signal or background).
 For this kind of classification tree, branches represent relations between variable or cuts on variables that lead to leaf representing category of the event.\\
