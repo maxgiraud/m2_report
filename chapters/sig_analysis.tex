@@ -1,15 +1,41 @@
 \mychapter{5}{Signal extracted on DATA}
 \label{sec:unchapitre}
 
-\section{PDF parametrization}
+In this section will be extracted \textgamma+jet event purity on real data.
+First we must establish PDF for signal (MC simulation) and background (real data in sideband), the analysis will be
+performed on the $p_T^\gamma$ range [ ? ; ? ] divided in 11? bins
 
+\section{Probability Density Function parametrization}
 
+PDF are established using the ROOFit framework of ROOT using MC simulation for signal and real data in the sideband for the background.
+Then ANN response for data in the signal region is expressed as : 
+
+\begin{equation}
+ANN(Data_{signal}) = a*PDF(MC_{signal}) + b*PDF(Data_{sideband})
+\end{equation}
+
+With : 
+\begin{itemize}
+	\item $ANN(Data_{signal}) :=$ the ANN response for Data in the signal region.
+	\item $PDF(MC_{signal}) :=$ PDF for MC in the signal region.
+	\item $PDF(Data_{sideband}) :=$ PDF for Data in the sideband. 
+	\item $a :=$ number of signal events.
+	\item $b :=$ number of background events. 
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+    \includegraphics[width=0.5\textwidth]{coming_soon}
+    \caption{Example of PDF parametrization for $p_T^\gamma \in [ ?;? ]$}
+    \label{coming_soon}
+\end{figure}
 
 \section{Fit on Data}
 
 
+\subsection{Pull-plot cross-check}
 
-
+\subsection{\textgamma+jet events purity}
 
 
 %%% Local Variables: 
