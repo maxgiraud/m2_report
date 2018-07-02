@@ -8,15 +8,15 @@ performed on the $p_T^\gamma$ range [ ? ; ? ] divided in 11? bins
 \section{Probability Density Function parametrization}
 
 PDF are established using the ROOFit framework of ROOT using MC simulation for signal and real data in the sideband for the background.
-Then ANN response for data in the signal region is expressed as : 
+Then MVA response for data in the signal region is expressed as : 
 
 \begin{equation}
-ANN(Data_{signal}) = a*PDF(MC_{signal}) + b*PDF(Data_{sideband})
+MVA(Data_{signal}) = a*PDF(MC_{signal}) + b*PDF(Data_{sideband})
 \end{equation}
 
 With : 
 \begin{itemize}
-	\item $ANN(Data_{signal}) :=$ the ANN response for Data in the signal region.
+	\item $MVA(Data_{signal}) :=$ the MVA response for Data in the signal region.
 	\item $PDF(MC_{signal}) :=$ PDF for MC in the signal region.
 	\item $PDF(Data_{sideband}) :=$ PDF for Data in the sideband. 
 	\item $a :=$ number of signal events.
