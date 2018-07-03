@@ -116,20 +116,33 @@ The optimization results in fig. (\ref{input_optim}) shows that keeping all the 
 \section{Boosted Decision Tree}
 
 Being the best MVA method a BDT has been trained also for the next part of the analysis fig. (\ref{bdt_output}).
+BDT uses a decision tree in order to map from input variables to the event category (signal or background).
+For this kind of classification tree, branches represent relations between variable or cuts on variables that lead to
+leaf representing category of the event. Fig. (\ref{bdt_diagram}) shows an example diagram of a small BDT classifying
+into 5 classes.\\
+\begin{figure}[h!]
+\centering
+    \includegraphics[width=0.6\textwidth]{bdt_diagram}
+    \caption{Boosted Decision Tree classifying in 5 classes diagram.}
+    \label{bdt_diagram}
+\end{figure}
+
+
 Multiple learning method has been used, the Gradient Boost Method was the most efficient one.
+With this method, the classification is done by combining together weak classifiers in an iteratively way :
+multiple "weak classifier" are trained and their output are combined in a weighted sum giving the "big classifier"
+output, then at each iteration the "weak classifiers" weights are adjusted to minimize the error on classification.
+
 \begin{figure}[h!]
 \centering
     \includegraphics[width=0.6\textwidth]{bdt_output}
-    \caption{Boosted Decision Tree response.}
+    \caption{Boosted Decision Tree response with signal from test sample (blue histogram),
+    background from test sample (red shaded histogram), signal from training sample (blue dots)
+    and background from training sample (red dots).}
     \label{bdt_output}
 \end{figure}
 
-%\subsection{Theory}
 
-BDT uses a decision tree in order to map from input variables to the event category (signal or background).
-For this kind of classification tree, branches represent relations between variable or cuts on variables that lead to leaf representing category of the event.\\
-For the "Gradient Boosting" method, the classification is done by combining together weak classifiers in an iteratively way.
-A finir!!!
 
 %%% Local Variables: 
 %%% mode: latex

@@ -2,26 +2,29 @@
 \label{sec:unchapitre}
 
 In this chapter will be described the data and simulations used for this study. Section 2.3 describes the input
-variables that have used for photon identification purpose.
+variables that have been used for photon identification purpose.
 
 \section{Monte-Carlo simulation}
 
-?
+We used simulated events for photon+jet and multijet production produced with the PYTHIA generator, interfaced to GEANT4 
+for the simulation of the CMS detector. A special care is taken to accurately simulate the pileup contribution to well 
+describe the data. The samples used in this study are official CMS samples.
 
 \section{CMS data}
 
-Run 2 at $\sqrt{s} = 13 TeV$ for an integrated luminosity of $~ 36 fb^{-1}$
-number of events ? slide de hugues ?
-
+This study uses the full dataset collected by CMS in 2016 for proton-proton collisions. These data were data recorded with good 
+LHC conditions and with a fully-functioning detector only, at $\sqrt{s} = 13 TeV$ for an integrated luminosity of $~ 36
+fb^{-1}$.
+ 
 \section{MVA variables}
 
-We are interested in prompt photons comming from the hard scattering, for identifying thes photons we need to perform a
-multivariate analysis.
-For this work we use multiple variables representing various aspects of reconstructed photons :
+We want to distinguish the so-called prompt photons, stemming for real photon+jet events, as the one from Fig.
+(\ref{gamma_jet}, from photons produced inside jets during the hadronisation process and following decays. 
+To this end, we dispose of several variables, representing various aspects of reconstructed photons :
 
 \begin{description}
-    \item [Isolation variables] represent additional objects (photons,charged hadron and neutral hadron) reconstructed
-    in a $\Delta R$ radius cone around the processed photon. These variables permit to discriminate between isolated
+    \item [Isolation variables] represent the total transverse momentum carried by additional objects (photons,charged hadron and neutral hadron) reconstructed
+    in a fixed cone, around the processed photon, of radius $\Delta R$. These variables permit to discriminate between isolated
     prompt photons and neutral pions within a jet.
     \begin{description}
 	    \item [Charged Hadron isolation (CHiso) : ] $I_{cha} = \sum_{cha_i}^{\Delta R}{p_{T,cha_i}}$ \\
@@ -38,18 +41,19 @@ For this work we use multiple variables representing various aspects of reconstr
     	\item [\textsigma\textsubscript{i\texteta i\texteta} :] Energy weighted spread within the 5x5 crystal matrix centred on the crystal with the largest energy deposit in the supercluster. Obtained by measuring position by countinig crystals. \\
 		$ \sigma_{i \eta i \eta} = \sqrt{\frac{\sum^{5x5}_{j}\omega_j (i \eta_j - i \eta_{seed})^2}{\sum^{5x5}_{j}\omega_j}}$ \\
 		$i \eta$ is the crystal index at position \texteta and $\omega_i$ is a weight representing the expected energy deposit measured.\\
+		$i\eta_{seed} $ is the crystal with the largest energy deposit in the supercluster.\\
 		$\omega_i = b + ln(\frac{E_i}{E_{5x5}})$
 		\item [\textsigma\textsubscript{i\textphi i\textphi} :] same variable as $ \sigma_{i \eta i \eta}$ but computed in the \textphi direction.
 		\item [\textsigma\textsubscript{i\texteta i\textphi} :] is the covariance between $ \sigma_{i \eta i \eta}$ and $ \sigma_{i \phi i \phi}$
     \\
-		\item [\texteta\textsubscript{width} \: \textgamma :] Shower width in \texteta
-    \item [\textphi\textsubscript{width} \: \textgamma :] Shower width in \textphi
+		\item [\texteta\textsubscript{width} \: \textgamma :] Electromagnetic shower width in \texteta
+    \item [\textphi\textsubscript{width} \: \textgamma :] Electromagnetic shower width in \textphi
 	\item [R\textsubscript{9} \: \textgamma :] Energy sum of the 3x3 crystals centred on the most energetic crystal in
     the supercluster divided by the supercluster's energy. Lower values of R\textsubscript{9} for converted photons than those of unconverted photons.
 	\item [Had/Em :] Hadronic calorimeter energy deposit over Electromagnetic calorimeter energy deposit
     \item [E\textsubscript{nxm}/E\textsubscript{5x5} :] Energy of most energetic nxm crystal set over energy of 5x5 crystal set
     \end{description}
-    \item [\textrho :] Pile-up energy, median of the transverse energy density per unit area.
+    \item [\textrho :] Pile-up energy density, median of the transverse energy density per unit area.
 \end{description}
 
 %%% Local Variables: 

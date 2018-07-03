@@ -16,28 +16,33 @@ Variables with most differences of shape for background and signal will be the m
 
 
 
-The MVA will be trained with MC simulation for the signal sample and with the real data for the background sample. Indeed we trust MC simulation for the signal sample (\textgamma+jet events) but on the contrary MC backgound (multi-jet) may not be accurate (by not taking into account ...) and gave us low statistics.\\
-For this reason real data will be used for the background sample and so a control region enriched in background event has to be defined (sideband).
-In order to do that we need to perform a data-driven background estimation using a low-correlated variable for this sideband definition.
+The MVA will be trained with MC simulation for the signal sample and with the real data for the background sample.
+Indeed we trust MC simulation for the signal sample (\textgamma+jet events)
+but on the contrary MC backgound (multi-jet) may not be accurate (by not considering all the contributing processes)
+and would give us low statistics leading to fluctuations.
+For this reason, a control region enriched in background multijet events (called sidebands in the following) has to be
+defined.
+Events in the sidebands will be used to extract the expected distribution of discriminant variables for background, and use them in the training of the multivariate analysis. The results will be then used in a signal region, in order to extract the signal directly from data.
 
 \section{Background vs Signal discrimination}
 
-The choice of discriminating variables is done by looking at their shape for background and signal, processed from MC simulation.\\
-Since the background is extracted from a data control region for the final analysis, a cross-check of the variables shape has to be done between Data and MC to validate this control region.\\
-Fig. (\ref{NHiso_photon_dataVsMCbg}) shows an example of MC simulation and data comparison for \emph{neutral hadron isolation} variable. \\
+The choice of discriminating variables is done by looking at their shape for background and signal, both taken from MC simulation.\\
+Fig. (\ref{NHiso_photon_dataVsMCbg}) shows an example of MC background simulation and sidebands data comparison for \emph{neutral hadron isolation} variable. \\
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.8\textwidth]{NHiso_photon}\\[1cm]
+  \includegraphics[width=0.7\textwidth]{NHiso_photon}\\[1cm]
   \caption{Top plot : Neutral hadron isolation variable for background (blue histogram) and signal MC (red histogram) and real data superimposed (empty circles). Normalized to integrated luminosity of $~36fb^{-1}$\\Bottom plot : Ratio of total expected events from MC (background+signal) over real data (blue cross) fitted by a constant (red line).}
   \label{NHiso_photon_dataVsMCbg}
 \end{figure}
 
+Since the background is extracted from a data control region for the final analysis, a cross-check of the variables
+shape has to be done between data (in the sidebands) and MC to validate this control region.\\
+
 \section{Variable correlations}
 
-%Training data needed-quantity increases with network complexity, so correlation between variables must be avoided in order to get the minimum redundancy.\\
-Because we use distribution of the data in the control region as a proxy for their distribution in the signal region, we need to make sure that the variable for the sideband definition has low correlations with the other one. 
-By looking at the correlation matrix fig. (\ref{corrMatrix_bgMC}) we can see that \emph{charged hadron isolation} is one good candidate and so will be used next for the sideband definition.\\
+It is interesting to look at the correlations between the variables considered in the multivariate analysis, which can also be a source of discrimination.
+Fig. (3.4) shows an example of the correlation values for the background MC.
 
 \begin{figure}[ht!]
   \centering
@@ -46,15 +51,19 @@ By looking at the correlation matrix fig. (\ref{corrMatrix_bgMC}) we can see tha
   \label{corrMatrix_bgMC}
 \end{figure}
 
-\section{Data driven background estimation}
+\section{Background-enriched control region definition}
 
-An MVA will be performed with real data for the background, thereby a sideband (background enriched region in the data
-sample) has to be defined on a low-correlated variable.\emph{Charged hadron isolation} fig. (\ref{sideband}) has been
-chosen and the sideband defined in order to find a good compromise between background purity and number of events on data.
+Because we use the distribution of the data in the control region as a proxy for their distribution in the signal region, we need to make sure that the variable for the sideband definition has low correlations with the ones used in the multivariate analysis.
+By looking at the correlation matrix fig. (\ref{corrMatrix_bgMC}) we can see that \emph{charged hadron isolation} (:= $I_{CH}$) is one good candidate and so will be used next for the sideband definition.\\
+The sideband defined in order to find a good compromise between background purity and number of events on data.
+
+%An MVA will be performed with real data for the background, thereby a sideband (background enriched region in the data
+%sample) has to be defined on a low-correlated variable.\emph{Charged hadron isolation} fig. (\ref{sideband}) has been
+%chosen and the sideband defined in order to find a good compromise between background purity and number of events on data.
 \begin{description}
 	\item [Sideband definition]
 	\begin{description}
-    	\item 2.325 < \emph{Charge hadron isolation} < 15.
+    	\item 2.3 < $I_{CH}$ < 15.
     	\item Background purity = 95.00 \%
 		\item Number of events = $7.59*10^5$
 	\end{description}
@@ -70,21 +79,27 @@ chosen and the sideband defined in order to find a good compromise between backg
 %	\end{description}
 %\end{description}
 
+Fig. (\ref{sideband}) sketches the definition of the sidebands and the signal region.
+
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.7\textwidth]{sideband}\\[1cm]
   \caption{Charged hadron isolation for background MC (blue histogram), signal MC (red histogram) and real data
   superimposed (empty circles). Normalized to integrated luminosity of $~36fb^{-1}$\\On top of this is the sideband
-  definition (red shaded area) and the signal region definition (blue shaded area)\\Bottom plot : Ratio of total expected events from MC (background+signal) over real data (blue cross) fitted by a constant (red line).}
+  definition (red shaded area) and the signal region definition (blue shaded area)\\Bottom plot : Ratio of real data over total expected events from MC (background+signal) (blue cross), fitted by a constant (red line).}
   \label{sideband}
 \end{figure}
 
 For cross-check, we compare the variables shape for background MC in the signal region and DATA in the sideband region.
-Fig. (\ref{MCbg_all_NHiso_photon}) shows an example of a comparison between \emph{neutral hadron isolation} for data in the sideband region and background Monte-Carlo. We can see a good agreement for MC and real data, except for a small trend in the high energy range probably due to the low statistics.
+Fig. (\ref{MCbg_all_NHiso_photon}) shows an example of a comparison between \emph{neutral hadron isolation} for data in
+the sideband region and background Monte-Carlo.\\
+We can see a good agreement for MC and real data, except for a small trend in the high energy range probably due to the low statistics.
+It can also be noticed that using the sidebands sensibly increases the available background statistics, with respect to
+the simulation.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.7\textwidth]{MCbg_all_NHiso_photon}\\[1cm]
-  \caption{Neutral hadron isolation for background MC (blue histogram) and real data in the sideband superimposed (empty circles). The integral of both distribution are normalized to unity.\\Bottom plot : Ratio of background MC over real data (blue cross) fitted by a constant (red line).}
+  \caption{Neutral hadron isolation for background MC (blue histogram) and real data in the sideband superimposed (empty circles). The integral of both distribution are normalized to unity.\\Bottom plot : Ratio of real data over background MC (blue cross) fitted by a constant (red line).}
   \label{MCbg_all_NHiso_photon}
 \end{figure}
 
