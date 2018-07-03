@@ -87,15 +87,20 @@ For evaluating the ANN multiple estimators has been tested :
 	\item [Mean Square Estimator (MSE)] $ MSE(\hat{\theta}) = E_{\hat{\theta}} [(\hat{\theta} - \theta)^2] =
     Var_{\hat{\theta}} + Bias(\hat{\theta}, \theta)^2$
 	\item [Cross-Entropy (CE)] $ H(T,q) = -\sum_{i=1}^{N}{\frac{1}{N} log_2 q(x_i)}$
-	\item [Overlapping criteria] $ = \sum_{i=1}^{N}{signal*background}$
+	\item [Overlapping criteria] is the sum of the products of signal and background response in each bin $ OC =
+    \sum_{i=1}^{N}{signal_i*background_i} $ with $N :=$ number of bins , $signal_i := $ number of signal events in bin
+    number i $background_i := $ number of background events in bin number i. Good classifiers show low value for this estimator.
 \end{description}
 
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{input_optim}
-    \caption{Input variable set optimization results overview, each bin is the estimator value for one MVA. Except for
+    \caption{On the left : Input variable set optimization results overview for the "overlapping criteria" estimator.
+    Each bin is the estimator value for one MVA. Except for
     the 1st column that represents the MVA trained with the whole input seti (step 1), 2nd column
     represent MVA's that has been trained after removing one variable at a time (step 2), following columns are the
-    iterations of step 2.}
+    iterations of step 2.\\
+    On the right : overview of the estimator value for each column (step 2). maximum value (red solid line), average
+    value (dark blue solid line) and lowest value (light blue solid line).}
     \label{input_optim}
 \end{figure}
 
